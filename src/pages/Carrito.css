@@ -1,0 +1,74 @@
+/* Carrito.css · cada fila entra deslizándose */
+.carrito,
+.carrito-vacio {
+  padding: 36px 0;
+  max-width: 760px;
+}
+.carrito-vacio {
+  text-align: center;
+}
+.carrito-lista {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 10px;
+}
+.carrito-item {
+  display: grid;
+  grid-template-columns: 64px 1fr auto auto auto;
+  gap: 14px;
+  align-items: center;
+  background: #fff;
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  padding: 8px 12px 8px 8px;
+  animation: desliza 0.35s both;
+}
+.carrito-item img {
+  width: 64px;
+  height: 48px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+.carrito-item div {
+  display: grid;
+}
+.quitar {
+  border: 0;
+  background: none;
+  color: var(--vino);
+  font-size: 1.4rem;
+  line-height: 1;
+}
+.carrito-pie {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 16px;
+}
+.carrito-total {
+  margin: 0;
+  font-size: 1.1rem;
+}
+.carrito-total strong {
+  font-size: 1.7rem;
+  color: var(--vino);
+  font-variant-numeric: tabular-nums; /* los dígitos no "bailan" */
+}
+@keyframes desliza {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+}
+@media (max-width: 560px) {
+  .carrito-item {
+    grid-template-columns: 52px 1fr auto;
+  }
+  .carrito-item > b {
+    grid-column: 2;
+  }
+}

@@ -1,0 +1,37 @@
+/* Avisos.css · entran desde la derecha y salen desvaneciéndose */
+.avisos {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  z-index: 60;
+  display: grid;
+  gap: 8px;
+  width: min(320px, calc(100% - 32px));
+}
+.aviso {
+  padding: 11px 14px;
+  border-radius: 12px;
+  color: #fff;
+  background: var(--verde);
+  box-shadow: 0 10px 22px rgb(0 0 0 / 0.2);
+  font-weight: 600;
+  animation: aviso-entra 0.35s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+.aviso.error {
+  background: var(--rojo);
+}
+.aviso.sale {
+  animation: aviso-sale 0.4s forwards;
+}
+@keyframes aviso-entra {
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+}
+@keyframes aviso-sale {
+  to {
+    opacity: 0;
+    transform: translateX(40px) scale(0.95);
+  }
+}

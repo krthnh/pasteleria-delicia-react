@@ -1,0 +1,74 @@
+/* Carta.css · caja con scroll propio y botón que aparece al bajar */
+.carta {
+  padding: 36px 0;
+  max-width: 720px;
+}
+.carta-indice {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+.carta-marco {
+  position: relative;
+  background: #fff;
+  border: 1px solid var(--borde);
+  border-radius: 18px;
+  overflow: hidden;
+}
+.carta-progreso {
+  height: 5px;
+  background: var(--vino);
+  transform-origin: left;
+}
+.carta-caja {
+  position: relative; /* las secciones miden su offsetTop desde aquí */
+  height: 360px;
+  overflow-y: auto;
+  padding: 0 18px 18px;
+}
+.carta-caja h3 {
+  position: sticky; /* el título de la categoría se queda arriba */
+  top: 0;
+  background: #fff;
+  padding: 14px 0 6px;
+  margin: 0;
+  color: var(--vino);
+}
+.carta-renglon {
+  display: grid;
+  grid-template-columns: 56px auto 1fr auto;
+  gap: 12px;
+  align-items: center;
+  padding: 10px 0;
+}
+.carta-renglon img {
+  width: 56px;
+  height: 42px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+.carta-puntos {
+  border-bottom: 2px dotted var(--borde);
+  height: 1px;
+}
+.carta-arriba {
+  position: absolute;
+  right: 16px;
+  bottom: 16px;
+  border: 0;
+  border-radius: 99px;
+  padding: 8px 14px;
+  background: var(--chocolate);
+  color: #fff;
+  font-weight: 700;
+  opacity: 0;
+  transform: translateY(16px);
+  pointer-events: none;
+  transition: opacity 0.3s, transform 0.3s;
+}
+.carta-arriba.visible {
+  opacity: 1;
+  transform: none;
+  pointer-events: auto;
+}

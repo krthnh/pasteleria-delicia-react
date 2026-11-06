@@ -1,0 +1,19 @@
+/* App.css · estructura de la página: encabezado, contenido y pie */
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column; /* uno debajo del otro */
+}
+.principal {
+  flex: 1; /* ocupa el espacio libre: el pie queda siempre abajo */
+}
+/* Entrada suave de cada página */
+.principal {
+  animation: pagina 0.45s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+@keyframes pagina {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+}

@@ -1,0 +1,53 @@
+/* OfertaDelDia.css · los segundos caen; en la última hora el borde late */
+.oferta {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 24px;
+  align-items: center;
+  background: #fff;
+  border: 2px solid var(--vino);
+  border-radius: 20px;
+  padding: 16px;
+  margin: 28px 0;
+}
+.oferta img {
+  border-radius: 14px;
+}
+.oferta p {
+  margin: 4px 0;
+}
+.oferta-ceja {
+  color: var(--vino);
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+}
+.reloj {
+  font-size: 1.4rem;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+}
+.digito {
+  display: inline-block;
+  animation: digito 0.35s;
+}
+.urgente {
+  animation: late 1s infinite;
+}
+@keyframes digito {
+  from {
+    transform: translateY(-10px);
+    opacity: 0;
+  }
+}
+@keyframes late {
+  50% {
+    box-shadow: 0 0 0 8px rgb(184 50 90 / 0.2);
+  }
+}
+@media (max-width: 560px) {
+  .oferta {
+    grid-template-columns: 1fr;
+  }
+}

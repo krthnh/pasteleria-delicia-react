@@ -1,0 +1,76 @@
+/* MiniCarrito.css · velo que se oscurece y panel que se desliza */
+.mini {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  pointer-events: none; /* cerrado: no bloquea la página */
+}
+.mini.abierto {
+  pointer-events: auto;
+}
+.mini-velo {
+  position: absolute;
+  inset: 0;
+  background: rgb(61 37 35 / 0.45);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.mini-panel {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: min(360px, 88%);
+  background: #fff;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  overflow-y: auto;
+  transform: translateX(100%); /* fuera de la pantalla */
+  transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+  box-shadow: -12px 0 30px rgb(0 0 0 / 0.2);
+}
+.abierto .mini-velo {
+  opacity: 1;
+}
+.abierto .mini-panel {
+  transform: none; /* entra */
+}
+.mini-panel header,
+.mini-panel footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.mini-panel footer {
+  margin-top: auto;
+  border-top: 1px dashed var(--borde);
+  padding-top: 10px;
+}
+.mini-cerrar {
+  border: 0;
+  background: none;
+  font-size: 1.6rem;
+  line-height: 1;
+}
+.mini-linea {
+  display: grid;
+  grid-template-columns: 48px 1fr auto;
+  gap: 10px;
+  align-items: center;
+  font-size: 0.9rem;
+  opacity: 0;
+  transform: translateX(24px);
+  transition: opacity 0.3s, transform 0.3s;
+}
+.abierto .mini-linea {
+  opacity: 1;
+  transform: none;
+}
+.mini-linea img {
+  width: 48px;
+  height: 36px;
+  object-fit: cover;
+  border-radius: 6px;
+}

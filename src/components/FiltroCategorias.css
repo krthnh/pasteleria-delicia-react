@@ -1,0 +1,13 @@
+/* FiltroCategorias.css · el chip activo se eleva con una transición */
+.filtros {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.filtros .chip:hover {
+  border-color: var(--vino);
+}
+.filtros .chip.activo {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgb(184 50 90 / 0.3);
+}

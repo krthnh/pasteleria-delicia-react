@@ -1,0 +1,85 @@
+/* Catalogo.css · grilla que se adapta sola al ancho de la pantalla */
+.catalogo {
+  padding: 36px 0;
+}
+.catalogo-cabecera {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 18px;
+}
+.grilla {
+  display: grid;
+  /* auto-fill: tantas columnas como quepan, cada una de mínimo 200px */
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+}
+/* En celulares: tarjetas más angostas para que entren dos por fila */
+@media (max-width: 520px) {
+  .grilla {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+}
+
+/* Entrada escalonada: cada celda espera --i × 80 ms */
+.celda {
+  display: grid;
+  animation: cae 0.5s calc(var(--i) * 80ms) both;
+}
+@keyframes cae {
+  from {
+    opacity: 0;
+    transform: translateY(24px) scale(0.95);
+  }
+}
+
+/* Barra de herramientas: buscador (y luego filtros y orden) */
+.herramientas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 18px;
+}
+.vacio {
+  text-align: center;
+  padding: 24px;
+  border: 2px dashed var(--borde);
+  border-radius: var(--radio);
+  animation: cae 0.4s both;
+}
+
+/* Mensaje de error que se sacude al aparecer */
+.error-carga {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  background: #fdecea;
+  color: #8a1f14;
+  border: 1px solid #f5c2bd;
+  border-radius: var(--radio);
+  padding: 12px 16px;
+  margin-bottom: 18px;
+  animation: sacude 0.4s;
+}
+@keyframes sacude {
+  25% {
+    transform: translateX(-6px);
+  }
+  75% {
+    transform: translateX(6px);
+  }
+}
+
+/* Mientras escribe, la grilla se atenúa un poco */
+.grilla {
+  transition: opacity 0.2s;
+}
+.grilla.esperando {
+  opacity: 0.55;
+}

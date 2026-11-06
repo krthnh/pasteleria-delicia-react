@@ -1,0 +1,35 @@
+/* Esqueleto.css · brillo que recorre la tarjeta vacía */
+.esqueleto {
+  background: #fff;
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  padding-bottom: 14px;
+  display: grid;
+  gap: 10px;
+}
+.esqueleto-foto,
+.esqueleto-linea {
+  background: linear-gradient(90deg, var(--rosa) 0%, #fff 50%, var(--rosa) 100%);
+  background-size: 200% 100%;
+  animation: brillo 1.1s linear infinite;
+}
+.esqueleto-foto {
+  aspect-ratio: 4 / 3;
+  border-radius: var(--radio) var(--radio) 0 0;
+}
+.esqueleto-linea {
+  height: 14px;
+  margin: 0 14px;
+  border-radius: 6px;
+}
+.esqueleto-linea.corta {
+  width: 45%;
+}
+@keyframes brillo {
+  from {
+    background-position: 100% 0;
+  }
+  to {
+    background-position: -100% 0;
+  }
+}

@@ -1,0 +1,62 @@
+/* TarjetaPago.css · giro 3D con perspective y backface-visibility */
+.pago {
+  display: grid;
+  gap: 10px;
+  perspective: 900px; /* profundidad para el efecto 3D */
+}
+.tarjeta {
+  position: relative;
+  height: 170px;
+  transform-style: preserve-3d;
+  transition: transform 0.7s cubic-bezier(0.3, 1.2, 0.4, 1);
+}
+.tarjeta.girada {
+  transform: rotateY(180deg);
+}
+.cara {
+  position: absolute;
+  inset: 0;
+  border-radius: 16px;
+  backface-visibility: hidden; /* la cara de atrás no se ve de frente */
+  color: #fff;
+  padding: 18px 20px;
+  display: grid;
+  align-content: space-between;
+  background: linear-gradient(135deg, var(--vino-oscuro), var(--chocolate));
+  box-shadow: 0 14px 28px rgb(61 37 35 / 0.3);
+}
+.marca-tarjeta {
+  justify-self: end;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+}
+.numero {
+  font: 1.25rem ui-monospace, Consolas, monospace;
+  letter-spacing: 0.06em;
+}
+.reverso {
+  transform: rotateY(180deg);
+  padding: 22px 0 16px;
+}
+.banda {
+  height: 34px;
+  background: #111;
+}
+.cvv {
+  justify-self: end;
+  margin-right: 20px;
+  background: #fff;
+  color: var(--chocolate);
+  padding: 3px 12px;
+  border-radius: 4px;
+  font-family: ui-monospace, Consolas, monospace;
+}
+.estado-tarjeta {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--rojo);
+}
+.estado-tarjeta.ok {
+  color: var(--verde);
+  font-weight: 700;
+}

@@ -1,0 +1,44 @@
+/* SelectorCantidad.css · aviso que se sacude */
+.selector-caja {
+  display: grid;
+  justify-items: center;
+  gap: 2px;
+}
+.selector {
+  display: inline-flex;
+  border: 1px solid var(--borde);
+  border-radius: 10px;
+  overflow: hidden;
+}
+.selector button {
+  width: 34px;
+  border: 0;
+  background: var(--rosa);
+  font-size: 1.1rem;
+}
+.selector input {
+  width: 48px;
+  border: 0;
+  border-radius: 0;
+  padding: 6px 0;
+  text-align: center;
+  font-weight: 700;
+  -moz-appearance: textfield;
+}
+.selector input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+.selector-aviso {
+  color: var(--rojo);
+  font-weight: 700;
+  font-size: 0.75rem;
+  animation: sacude 0.35s;
+}
+@keyframes sacude {
+  25% {
+    transform: translateX(-5px);
+  }
+  75% {
+    transform: translateX(5px);
+  }
+}

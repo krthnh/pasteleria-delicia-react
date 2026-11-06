@@ -1,0 +1,43 @@
+/* DetalleModal.css · el modal entra creciendo; el fondo se desenfoca */
+.modal {
+  border: 0;
+  border-radius: 18px;
+  padding: 0;
+  width: min(380px, 92vw);
+  color: var(--chocolate);
+  font: 16px/1.5 system-ui, "Segoe UI", sans-serif;
+}
+.modal[open] {
+  animation: abre 0.35s cubic-bezier(0.2, 0.9, 0.3, 1.2);
+}
+.modal::backdrop {
+  background: rgb(61 37 35 / 0.5);
+  backdrop-filter: blur(3px);
+}
+.modal-cuerpo {
+  display: grid;
+  gap: 6px;
+  padding-bottom: 16px;
+}
+.modal-cuerpo img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+.modal-cuerpo h3,
+.modal-cuerpo p,
+.modal-pie {
+  margin: 0;
+  padding: 0 18px;
+}
+.modal-pie {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+@keyframes abre {
+  from {
+    opacity: 0;
+    transform: translateY(24px) scale(0.92);
+  }
+}

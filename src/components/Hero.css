@@ -1,0 +1,57 @@
+/* Hero.css · degradado de fondo, entrada escalonada e imagen flotante */
+.hero {
+  background: linear-gradient(135deg, var(--rosa), var(--crema) 60%);
+  padding: 48px 0;
+  overflow: hidden;
+}
+.hero-grilla {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  align-items: center;
+  gap: 32px;
+}
+.hero-ceja {
+  color: var(--vino);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+}
+.hero h1 {
+  font-size: clamp(2rem, 5vw, 3.2rem); /* crece con la pantalla, con mínimo y máximo */
+}
+.hero em {
+  color: var(--vino);
+}
+.boton-grande {
+  padding: 12px 22px;
+  font-size: 1.05rem;
+}
+/* Cada hijo del texto entra un poco después que el anterior */
+.hero-texto > * {
+  animation: sube 0.6s both;
+}
+.hero-texto > :nth-child(2) { animation-delay: 0.1s; }
+.hero-texto > :nth-child(3) { animation-delay: 0.2s; }
+.hero-texto > :nth-child(4) { animation-delay: 0.3s; }
+.hero-imagen {
+  border-radius: 24px;
+  box-shadow: var(--sombra);
+  animation: flota 4s ease-in-out infinite;
+}
+@keyframes sube {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+}
+@keyframes flota {
+  50% {
+    transform: translateY(-12px) rotate(-1deg);
+  }
+}
+@media (max-width: 640px) {
+  .hero-grilla {
+    grid-template-columns: 1fr;
+  }
+}

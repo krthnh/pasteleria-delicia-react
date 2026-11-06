@@ -1,0 +1,44 @@
+/* MiPedido.css · la tarjeta cambia de color y entra girando según el rol */
+.mi-pedido {
+  padding: 36px 0;
+  max-width: 720px;
+  display: grid;
+  gap: 16px;
+}
+.roles {
+  display: flex;
+  gap: 8px;
+}
+.roles .chip {
+  text-transform: capitalize;
+}
+.pedido-tarjeta {
+  background: #fff;
+  border: 1px solid var(--borde);
+  border-left: 8px solid var(--vino);
+  border-radius: 18px;
+  padding: 18px 22px;
+  display: grid;
+  gap: 14px;
+  animation: cambia-rol 0.45s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+.pedido-tarjeta.empleado {
+  border-left-color: #2a7fb8;
+}
+.pedido-tarjeta h2,
+.pedido-tarjeta p {
+  margin: 0;
+}
+.nota {
+  color: var(--vino);
+  font-weight: 600;
+}
+.mi-pedido > .chip {
+  justify-self: start;
+}
+@keyframes cambia-rol {
+  from {
+    opacity: 0;
+    transform: translateX(-18px) rotateY(12deg);
+  }
+}

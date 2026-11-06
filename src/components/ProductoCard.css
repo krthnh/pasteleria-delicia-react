@@ -1,0 +1,99 @@
+/* ProductoCard.css · tarjeta con elevación y zoom de la foto */
+.card {
+  background: #fff;
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--sombra);
+}
+.card-foto {
+  position: relative;
+  overflow: hidden; /* el zoom no se sale del recuadro */
+}
+.card-foto img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  transition: transform 0.5s;
+}
+.card:hover .card-foto img {
+  transform: scale(1.08);
+}
+.card-cuerpo {
+  padding: 12px 14px 14px;
+  display: grid;
+  gap: 4px;
+  flex: 1;
+  align-content: start;
+}
+.card-cuerpo h3 {
+  font-size: 1.05rem;
+  margin: 0;
+}
+.card-categoria {
+  color: var(--vino);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 0.7rem;
+}
+.precio {
+  font-weight: 800;
+  font-size: 1.15rem;
+  margin: 0;
+}
+.card .boton {
+  margin-top: 8px;
+}
+
+/* Sellos de disponibilidad */
+.sello {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  padding: 3px 10px;
+  border-radius: 99px;
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 800;
+}
+.sello-agotado {
+  background: var(--chocolate);
+}
+.sello-pocos {
+  background: #e2741d;
+  animation: pulso 1.2s ease-in-out infinite;
+}
+@keyframes pulso {
+  50% {
+    transform: scale(1.12);
+    box-shadow: 0 0 0 6px rgb(226 116 29 / 0.25);
+  }
+}
+/* Producto agotado: foto en gris */
+.agotado .card-foto img {
+  filter: grayscale(1);
+  opacity: 0.6;
+}
+
+/* Confirmación: verde con un pequeño rebote */
+.boton.listo {
+  background: var(--verde);
+  animation: rebote 0.45s cubic-bezier(0.3, 1.8, 0.5, 1);
+}
+@keyframes rebote {
+  40% {
+    transform: scale(1.1);
+  }
+}
+
+/* Toda la tarjeta es clicable */
+.card {
+  cursor: pointer;
+}

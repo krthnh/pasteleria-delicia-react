@@ -1,0 +1,116 @@
+/* Encabezado.css · barra fija arriba con efecto de vidrio */
+.encabezado {
+  position: sticky; /* se queda pegada al hacer scroll */
+  top: 0;
+  z-index: 10;
+  background: rgb(255 255 255 / 0.88);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--borde);
+}
+.encabezado-fila {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  min-height: 64px;
+  flex-wrap: wrap;
+}
+.marca {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: 0;
+  background: none;
+  padding: 0;
+  font-weight: 800;
+  font-size: 1.25rem;
+  color: var(--vino);
+}
+.marca-sello {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--vino);
+  color: #fff;
+  transition: transform 0.4s;
+}
+.marca:hover .marca-sello {
+  transform: rotate(-12deg) scale(1.08);
+}
+.menu {
+  display: flex;
+  gap: 4px;
+  flex: 1;
+}
+.menu-enlace {
+  position: relative;
+  border: 0;
+  background: none;
+  padding: 8px 10px;
+  color: var(--chocolate);
+  font-weight: 600;
+  white-space: nowrap; /* "Mi pedido" no se parte en dos líneas */
+}
+/* Línea inferior que crece al pasar el mouse */
+.menu-enlace::after {
+  content: "";
+  position: absolute;
+  left: 10px;
+  right: 10px;
+  bottom: 3px;
+  height: 2px;
+  background: var(--vino);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s;
+}
+.menu-enlace:hover::after,
+.menu-enlace.activo::after {
+  transform: scaleX(1);
+}
+.icono-carrito {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid var(--borde);
+  background: #fff;
+  border-radius: 99px;
+  padding: 6px 8px 6px 14px;
+  font-weight: 600;
+  color: var(--chocolate);
+  margin-left: auto; /* empuja el botón a la derecha */
+}
+.contador-carrito {
+  display: inline-grid;
+  place-items: center;
+  min-width: 26px;
+  height: 26px;
+  padding: 0 7px;
+  border-radius: 99px;
+  background: var(--vino);
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: 800;
+}
+/* En pantallas pequeñas el menú baja a su propia fila */
+@media (max-width: 640px) {
+  .menu {
+    order: 3;
+    flex-basis: 100%;
+    overflow-x: auto;
+  }
+}
+
+/* Salto elástico del contador */
+.salta {
+  animation: salta 0.5s cubic-bezier(0.3, 1.8, 0.5, 1);
+}
+@keyframes salta {
+  0% {
+    transform: scale(0.4);
+  }
+  50% {
+    transform: scale(1.45);
+  }
+}

@@ -1,0 +1,102 @@
+/* Checkout.css · selector tipo "interruptor" con indicador deslizante */
+.checkout {
+  padding: 36px 0;
+  max-width: 480px;
+  display: grid;
+  gap: 14px;
+}
+.selector-entrega {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background: var(--rosa);
+  border-radius: 99px;
+  padding: 4px;
+}
+.selector-entrega button {
+  position: relative;
+  z-index: 1; /* por encima del indicador */
+  border: 0;
+  background: none;
+  padding: 9px;
+  font-weight: 700;
+  color: var(--chocolate);
+  transition: color 0.3s;
+}
+.indicador {
+  position: absolute;
+  top: 4px;
+  bottom: 4px;
+  left: 4px;
+  width: calc(50% - 4px);
+  background: var(--vino);
+  border-radius: 99px;
+  transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.tienda .indicador {
+  transform: translateX(100%);
+}
+.delivery button:first-of-type,
+.tienda button:last-of-type {
+  color: #fff;
+}
+.panel-entrega {
+  animation: entra 0.35s both;
+}
+.panel-entrega input,
+.panel-entrega select {
+  width: 100%;
+}
+.totales {
+  margin: 0;
+  display: grid;
+  gap: 6px;
+  background: #fff;
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  padding: 14px 16px;
+  font-variant-numeric: tabular-nums;
+}
+.totales div {
+  display: flex;
+  justify-content: space-between;
+}
+.totales dd {
+  margin: 0;
+}
+.totales .total {
+  border-top: 1px dashed var(--borde);
+  padding-top: 8px;
+  font-weight: 800;
+  font-size: 1.2rem;
+}
+.cambia {
+  animation: resalta 0.9s;
+  border-radius: 4px;
+}
+.boton-ancho {
+  width: 100%;
+  padding: 12px;
+}
+@keyframes entra {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+}
+@keyframes resalta {
+  from {
+    background: #ffe066;
+  }
+}
+.metodos-pago {
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+.metodos-pago label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 600;
+}

@@ -1,0 +1,63 @@
+/* LineaTiempo.css · la barra crece con transición y el punto actual late */
+.linea-tiempo {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  padding-top: 4px;
+}
+.linea-tiempo::before,
+.linea-relleno {
+  content: "";
+  position: absolute;
+  top: 13px;
+  left: 10%;
+  height: 4px;
+  border-radius: 4px;
+}
+.linea-tiempo::before {
+  right: 10%;
+  background: var(--borde);
+}
+.linea-relleno {
+  background: var(--vino);
+  transition: width 0.7s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.paso {
+  position: relative;
+  display: grid;
+  justify-items: center;
+  gap: 6px;
+  text-align: center;
+  font-size: 0.75rem;
+  opacity: 0.55;
+  transition: opacity 0.3s;
+}
+.punto {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #fff;
+  border: 3px solid var(--borde);
+  transition: background 0.3s, border-color 0.3s, transform 0.3s;
+}
+.hecho,
+.actual {
+  opacity: 1;
+}
+.hecho .punto {
+  background: var(--vino);
+  border-color: var(--vino);
+}
+.actual .punto {
+  border-color: var(--vino);
+  transform: scale(1.25);
+  animation: latido 1.4s infinite;
+}
+@keyframes latido {
+  0% {
+    box-shadow: 0 0 0 0 rgb(184 50 90 / 0.5);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgb(184 50 90 / 0);
+  }
+}
